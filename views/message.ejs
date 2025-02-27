@@ -1,0 +1,21 @@
+<!-- success.ejs -->
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Éxito</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="flex items-center justify-center h-screen bg-teal-800">
+		<div class="flex flex-col items-center justify-center bg-gray-800 p-6 rounded-lg w-80 shadow-md">
+			<h1 class="text-white text-3xl font-extrabold text-center mb-6"><%= message.header %></h1>
+			<p class="text-white text-center mt-4"><%= message.body %></p>
+			<p class="text-white text-center mt-4"><%= message.email %></p>
+			<a href="<%= message.link %>" class="block text-[#15cfc6] text-center text-2xl mt-6"><%- message.page %></a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Carrito compras</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body class="bg-[#0E454E] flex flex-col justify-center items-center min-h-screen dark:bg-black dark:text-white">
+		<header>
+			<div id="main-menu"></div>
+		</header>
+		<!-- Carrito de compras -->
+		<div id="see-cart" class="rounded-lg flex flex-col justify-start items-center p-6 w-4/5 max-w-4xl mt-28 bg-[#1e2a33] shadow-lg">
+			<h1 class="text-[#daa520] text-center mb-6 text-2xl font-bold w-full rounded py-3"><i class="bi bi-cart4 text-[#15cfc6]"></i> Tu carrito de compras:</h1>
+
+			<div class="w-full mb-5 border border-[#728cb0] rounded p-2">
+				<table id="see-cart-list" class="w-full text-[#728cb0]">
+					<thead class="border-b border-[#728cb0]">
+						<tr class="text-sm">
+							<th class="p-2">Imagen</th>
+							<th class="p-2">Nombre</th>
+							<th class="p-2">Cantidad</th>
+							<th class="p-2"></th>
+							<th class="p-2">Precio</th>
+							<th class="text-right p-2">
+								<p>
+									<span id="see-n-cart-items" see-data-nItems="0" class="text-xs not-italic">0</span>
+									<i class="bi bi-cart4" id="icon-cart"></i>
+								</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Aquí se deben agregar las filas del cuerpo de la tabla -->
+					</tbody>
+					<tfoot class="text-[#15cfc6]">
+						<tr>
+							<td colspan="4" class="px-4 py-2">Total</td>
+							<td id="see-total" class="text-right px-1 py-2 border-t border-[#728cb0]">$ 0.00</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<!-- Botones de acción -->
+			<div class="mt-5 mb-5 flex justify-between w-4/5 max-w-4xl gap-3 max-sm:flex-col items-center">
+				<a id="openModal" href="#" class="rounded text-center w-52 p-2 text-sm bg-red-600 text-white font-bold border border-white hover:border-red-600 hover:bg-white hover:text-red-600"
+					>Vaciar Carrito</a
+				>
+				<a href="/order" id="see-order" class="rounded text-center w-52 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700"
+					>Realizar pedido</a
+				>
+				<a
+					href="./index.html"
+					id="continue-buying"
+					class="rounded text-center w-52 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700"
+					>Seguir comprando</a
+				>
+			</div>
+		</div>
+
+		<!-- Fondo semitransparente -->
+		<div id="modalBackground" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"></div>
+
+		<!-- Modal -->
+		<div
+			id="myModal"
+			class="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-75 justify-center items-center hidden p-6 rounded-lg shadow-lg max-w-md min-h-min"
+		>
+			<div class="bg-white p-6 rounded shadow-lg flex flex-col justify-center">
+				<h2 class="text-xl mb-4">¿Estás seguro de que deseas vaciar tu carrito de compras?</h2>
+				<div class="flex justify-around items-center">
+					<button id="confirmAction" class="bg-green-500 text-white px-4 py-2 rounded mr-2">Sí</button>
+					<button id="closeModal" class="bg-red-500 text-white px-4 py-2 rounded">No</button>
+				</div>
+			</div>
+		</div>
+		<script type="module" src="./js/load.main.menu.js"></script>
+		<script type="module" src="./js/menu.actions.js"></script>
+		<script type="module" src="./js/see.shoppingCart.js"></script>
+		<script type="module" src="./js/syncCartWithServer.js"></script>
+		<script src="./js/verify.cart.is.empty.js"></script>
+		<script type="module" src="./js/logout.js"></script>
+		<script src="./js//authenticate.client.token.js"></script>
+	</body>
+</html>

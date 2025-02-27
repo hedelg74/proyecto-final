@@ -1,0 +1,202 @@
+<div class="flex justify-between max-sm:flex max-sm:items-baseline">
+	<input type="checkbox" id="input-check" class="check" />
+	<label for="input-check" class="hamb"><i class="bi bi-list"></i><i class="bi bi-x-lg"></i>Menu</label>
+	<div class="logo-container max-sm:flex-col">
+		<img src="./images/favicon.png" alt="logo" class="logo" />
+		<p>Arte-TTuckler</p>
+	</div>
+
+	<nav class="navbar">
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="index.html#inicio"><i class="bi bi-house-up text-[#15cfc6]"></i>Inicio</a>
+			</li>
+			<li class="menu-item">
+				<a href="about-me.html"><i class="bi bi-file-earmark-person text-[#15cfc6]"></i>Acerca de</a>
+			</li>
+			<li class="menu-item submenu-one">
+				<a href="#"><i class="bi bi-dropbox text-[#15cfc6]"></i>Productos<i class="bi bi-chevron-right"></i></a>
+
+				<ul class="children-one">
+					<li class="submenu-two">
+						<a href="#">Macramé<i class="bi bi-chevron-right"></i></a>
+						<ul class="children-two">
+							<li><a href="#">Aretes</a></li>
+							<li><a href="#">Collares</a></li>
+							<li><a href="#">Pulseras</a></li>
+						</ul>
+					</li>
+					<li class="submenu-two">
+						<a href="#">Cuero<i class="bi bi-chevron-right"></i></a>
+						<ul class="children-two">
+							<li><a href="#">Aretes</a></li>
+							<li><a href="#">Bolsos</a></li>
+							<li><a href="#">Carteras</a></li>
+							<li><a href="#">Pulseras</a></li>
+						</ul>
+					</li>
+					<li class="submenu-two">
+						<a href="#">Alambre<i class="bi bi-chevron-right"></i></a>
+						<ul class="children-two">
+							<li><a href="#">Anillos</a></li>
+							<li><a href="#">Aretes</a></li>
+							<li><a href="index.html#alambre-collares">Collares</a></li>
+							<li><a href="index.html#alambre-brazaletes">Brazaletes</a></li>
+							<li><a href="index.html#alambre-dijes">Dijes</a></li>
+							<li><a href="#">Pulseras</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="menu-item">
+				<a href="index.html#contact"><i class="bi bi-envelope text-[#15cfc6]"></i>Contacto</a>
+			</li>
+			<li class="menu-item">
+				<a href="index.html#services"><i class="bi bi-card-list text-[#15cfc6]"></i>Servicios</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="cart-container cursor-pointer p-2">
+		<p><span id="n-cart-items" data-nItems="0" class="text-white text-xs not-italic">0 </span><i class="bi bi-cart4 text-[#15cfc6]" id="icon-cart"></i></p>
+		<ul class="submenu-cart hidden">
+			<li>
+				<div id="cart">
+					<h1 class="text-green-500 mb-4">Carrtio de compras:</h1>
+					<table id="cart-list" class="border-b mb-2 text-xs">
+						<thead class="border-b">
+							<tr class="text-left">
+								<th>Imagen</th>
+								<th>Descripcion</th>
+								<th>Cant</th>
+								<th>Precio</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Aquí se deben agregar las filas del cuerpo de la tabla -->
+						</tbody>
+						<tfoot>
+							<tr>
+								<td col-span-1 class="px-4 py-2">Total</td>
+								<td></td>
+								<td></td>
+								<td id="total" class="py-2 border-t text-right">$ 0.00</td>
+							</tr>
+						</tfoot>
+					</table>
+
+					<a href="#" id="openModal" class="btn-vaciar rounded ml-1 text-xs text-white p-2 border border-white bg-red-400 hover:text-red-400 hover:border-red-400 hover:bg-transparent"
+						>Vaciar Carrito</a
+					>
+					<a
+						href="./shopping-cart.html"
+						id="see-cart"
+						class="btn-send rounded ml-24 text-xs text-white p-2 border border-white bg-blue-400 hover:text-blue-400 hover:border-blue-400 hover:bg-transparent"
+						>Ver carrito</a
+					>
+					<div id="message" class="hidden mt-3 border rounded bg-slate-100">
+						<div class="flex flex-col justify-center items-center">
+							<h1 class="font-bold">TU CARRITO ESTA VACIO!</h1>
+							<h1 class="text-center">¡Agrega algunos productos antes de continuar!</h1>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!--Tema color-->
+	<div class="flex items-center space-x-4 mr-10">
+		
+		<!-- Toggle switch con iconos -->
+		<label class="relative inline-flex items-center cursor-pointer h-fit">
+			<i class="bi bi-brightness-high absolute left-1 top-1 text-white text-sm"></i>
+			<input id="theme-toggle" type="checkbox" class="sr-only peer">
+			<div class="w-14 h-7 bg-gray-300 rounded-full peer-checked:bg-blue-600 transition-colors"></div>
+		
+		
+			<!-- Esfera -->
+			<div class="absolute left-1 top-1 w-6 h-5 bg-white rounded-full shadow-md transition-transform transform peer-checked:translate-x-6"></div>
+			<i class="bi bi-moon absolute right-1 top-1 text-black text-sm"></i>
+		</label>
+	  </div>
+
+
+	<!-- menu urarios -->
+	<div id="user" class="flex flex-col relative mt-2 mb-2 z-[1001] p-2 mr-2">
+		<div class="flex flex-col mr-5 items-center cursor-pointer">
+			<a href="#" class="user-icon max-sm:text-2xl">
+				<i class="bi bi-person-circle text-[#15cfc6]"></i>
+			</a>
+			<span id="session-status" class="text-[#daa520]"></span>
+		</div>
+		<ul id="dropdown" class="hidden bg-[#252a33] absolute top-[100%] right-[-5px] w-[360px] rounded">
+			<li class="mt-4">
+				<a id="profile" href="/profile" class="hidden text-sm text-slate-200 hover:text-[#daa520] p-2 m-2 rounded hover:bg-[#3b414d]"><i class="bi bi-person-badge text-[#15cfc6]"></i> Perfil</a>
+			</li>
+			<hr id="line-1" class="hidden m-2 border-gray-500" />
+			<li>
+				<a id="account" href="/account" class="hidden text-sm text-slate-200 hover:text-[#daa520] p-2 m-2 rounded hover:bg-[#3b414d]" hover:text-[#daa520]
+					><i class="bi bi-gear text-[#15cfc6]"></i> Configurar cuenta</a
+				>
+			</li>
+			<li>
+				<a id="admin-panel" href="/admin-panel" class="hidden text-sm text-slate-200 hover:text-[#daa520] p-2 m-2 rounded hover:bg-[#3b414d]" hover:text-[#daa520]
+					><i class="bi bi-gear text-[#15cfc6]"></i> Panel Administrativo
+				</a>
+			</li>
+			<hr id="line-2" class="m-2 border-gray-500" />
+			<li>
+				<form id="loginForm" class="flex flex-col">
+					<div class="grid grid-cols-3 mt-2">
+						<div class="flex flex-col gap-y-3 ml-2 p-2">
+							<span class="text-sm text-slate-200"><i class="bi bi-envelope-at-fill text-[#15cfc6]"></i> Email: </span>
+							<span class="text-sm text-slate-200"><i class="bi bi-pass text-[#15cfc6]"></i> Password: </span>
+						</div>
+						<div class="flex flex-col gap-y-2 mr-2 col-span-2">
+							<input
+								type="email"
+								id="email"
+								name="email"
+								minlength="5"
+								maxlength="50"
+								title="Introduce tu correo electrónico."
+								placeholder="Enter your email"
+								required
+								class="border rounded bg-slate-200"
+							/>
+
+							<input
+								type="password"
+								name="password"
+								id="password"
+								minlength="8"
+								maxlength="32"
+								title="Introce tu contrasena."
+								placeholder="Enter your password"
+								required
+								class="border rounded bg-slate-200"
+							/>
+						</div>
+					</div>
+					<span id="login-error-message" class="text-red-700 text-center hidden"></span>
+					<button id="login" type="submit" class="text-sm text-slate-200 hover:text-[#daa520] hover:bg-[#3b414d] block rounded p-2 m-2">Iniciar session</button>
+				</form>
+			</li>
+			<hr id="line-3" class="hidden m-2 border-gray-500" />
+			<li>
+				<a id="logout" href="#" class="hidden text-sm text-slate-200 hover:text-[#daa520] p-2 m-2 rounded hover:bg-[#3b414d]"> <i class="bi bi-box-arrow-right text-[#15cfc6]"></i> Cerrar session</a>
+			</li>
+			<hr class="m-2 border-gray-500" />
+			<li class="mb-4">
+				<div class="text-center">
+					<a id="signup" href="/signup.html" class="text-xs text-slate-200 block p-2 m-2 rounded hover:bg-[#3b414d]">Crear un cuenta</a>
+				</div>
+			</li>
+			<li class="mb-4">
+				<div class="text-center">
+					<a id="forgot-pwd" href="/forgot-password.html" class="text-xs text-blue-500 block p-2 m-2 rounded hover:bg-[#3b414d]">Olvido su contrasena?</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+</div>

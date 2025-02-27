@@ -26,3 +26,12 @@ El proyecto debe verse profesional. La complejidad del còdigo nadie lo ve, solo
 Los productos deben de tener su propia pàgina donde se puedan ver los detalles y un botòn para poder imprimir un còdigo QR para poder identificar el producto.
 
 La app debe de tener un botòn para poder activar la càmara y poder escanear el còdigo QR impreso. Al escanearlo, la app me debe llevar a la pàgina del artìculo.
+
+# arte_ttuckler
+
+Pagina de tienda en linea
+
+Este es el usuario administrador:
+email:hdelgados74@gmail.com
+contraseña:hedelg1974
+

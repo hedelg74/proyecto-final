@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registrarse</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="flex justify-center items-center h-screen bg-teal-800">
+		<div class="bg-gray-800 p-6 rounded-lg w-96 shadow-lg">
+			<h1 class="text-white text-center text-3xl font-extrabold mb-5">Crear una cuenta</h1>
+			<form id="signupForm">
+				<div class="mb-4">
+					<label for="username" class="block text-white mb-2">Username</label>
+					<input
+						type="text"
+						name="username"
+						id="username"
+						required
+						minlength="4"
+						pattern="[-_a-zA-Z0-9]+$"
+						title="El nombre de usuario solo puede contener letras, números, guiones y guiones bajos."
+						class="w-full p-2 border border-gray-300 rounded bg-gray-200"
+					/>
+				</div>
+
+				<div class="mb-4">
+					<label for="email" class="block text-white mb-2">Email</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						minlength="5"
+						maxlength="50"
+						pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+						title="Introduce un correo electrónico válido (ejemplo@dominio.com)"
+						placeholder="Enter your email"
+						required
+						class="w-full p-2 border border-gray-300 rounded bg-gray-200"
+					/>
+				</div>
+
+				<div class="mb-4">
+					<label for="password" class="block text-white mb-2">Password</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						required
+						minlength="8"
+						maxlength="32"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+						title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+						class="w-full p-2 border border-gray-300 rounded bg-gray-200"
+					/>
+				</div>
+
+				<div class="mb-4">
+					<label for="confirm-password" class="block text-white mb-2">Confirm Password</label>
+					<input
+						type="password"
+						name="confirm-password"
+						id="confirm-password"
+						required
+						minlength="8"
+						maxlength="32"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+						title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+						class="w-full p-2 border border-gray-300 rounded bg-gray-200"
+					/>
+				</div>
+
+				<button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 font-semibold text-lg">Registrarse</button>
+				<p class="text-white text-center mt-4">Ya tienes una cuenta? <a href="./login.html" class="text-blue-400 hover:underline">Inicia sesión aquí</a>.</p>
+			</form>
+			<a href="/" class="block text-[#15cfc6] text-center text-2xl mt-6"> <i class="bi bi-house-up"></i> Inicio </a>
+		</div>
+
+		<script type="module" src="./js/signup.js"></script>
+	</body>
+</html>

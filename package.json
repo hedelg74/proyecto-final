@@ -1,0 +1,65 @@
+{
+	"name": "arte-tuckler",
+	"version": "1.0.0",
+	"engines": {
+  		"node": "20.x"
+	},
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"start": "node -v && node app.js",
+		"build:css": "npx tailwindcss -i ./src/styles/input.css -o ./public/css/output.css",
+		"dev": "concurrently \"npm run dev:server\" \"npm run dev:tailwind\"",
+		"dev:server": "nodemon src/app",
+		"dev:tailwind": "npx tailwindcss -i ./src/styles/input.css -o ./public/css/output.css --watch",
+		"format": "prettier --write .",
+		"dev:eslint": "npx eslint .",
+		"dev:eslintfix": "npx eslint . --fix"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"axios": "^1.7.7",
+		"bcrypt": "^5.1.1",
+		"bootstrap-icons": "^1.11.3",
+		"busboy": "^1.6.0",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
+		"countries-states-cities": "^1.0.6",
+		"country-flag-icons": "^1.5.13",
+		"country-flags-svg": "^2.0.0-beta.1",
+		"country-state-city": "^3.2.1",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"express-session": "^1.18.1",
+		"html5-qrcode": "^2.3.8",
+		"intl-tel-input": "^24.5.0",
+		"js-cookie": "^3.0.5",
+		"jsonwebtoken": "^9.0.2",
+		"multer": "^1.4.5-lts.1",
+		"mysql2": "^3.10.2",
+		"node-fetch": "^3.3.2",
+		"node-postal": "^1.2.0",
+		"nodemailer": "^6.9.15",
+		"nodemon": "^3.1.4",
+		"qrcode": "^1.5.4",
+		"sharp": "^0.33.5",
+		"uuid": "^11.0.4"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.12.0",
+		"autoprefixer": "^10.4.19",
+		"concurrently": "^8.2.2",
+		"daisyui": "^4.12.23",
+		"eslint": "^9.12.0",
+		"globals": "^15.10.0",
+		"postcss": "^8.4.39",
+		"prettier": "^3.3.3",
+		"tailwindcss": "^3.4.6"
+	}
+	
+
+}

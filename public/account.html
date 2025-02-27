@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Configuracion de cuenta</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="bg-[#0E454E] min-h-screen flex items-center justify-center p-4">
+		<form class="bg-[#1e2a33] max-w-3xl w-full rounded-lg p-6 shadow-lg">
+			<!-- Título del formulario -->
+			<h1 class="text-[#daa520] text-3xl font-bold flex items-center space-x-2">
+				<i class="bi bi-person text-[#15cfc6]"></i>
+				<span>Información para Envío</span>
+			</h1>
+
+			<!-- Sección de información personal -->
+			<div class="space-y-1">
+				<div>
+					<fieldset>
+						<legend class="text-lg font-semibold text-[#728cb0] mb-2">Nombre Completo <span class="text-red-600">*</span></legend>
+						<div class="flex flex-col md:flex-row gap-4">
+							<div class="w-full md:w-1/2">
+								<input type="text" id="name" required class="w-full p-2 rounded-lg" placeholder="Nombre" />
+							</div>
+							<div class="w-full md:w-1/2">
+								<input type="text" id="last-name" required class="w-full p-2 rounded-lg" placeholder="Apellido" />
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<!-- Sección de dirección -->
+				<fieldset>
+					<legend class="text-lg font-semibold text-[#728cb0] mb-2">Dirección <span class="text-red-600">*</span></legend>
+					<div class="space-y-4">
+						<input type="text" id="address" required class="w-full p-2 rounded-lg" placeholder="Dirección" />
+						<div class="flex flex-col md:flex-row gap-4">
+							<input type="text" id="city" required class="w-full md:w-1/2 p-2 rounded-lg" placeholder="Ciudad" />
+							<input type="text" id="state" required class="w-full md:w-1/2 p-2 rounded-lg" placeholder="Provincia" />
+						</div>
+						<div class="flex flex-col md:flex-row gap-4">
+							<input type="text" id="country" required class="w-full md:w-1/2 p-2 rounded-lg" placeholder="País" />
+							<input type="text" id="postal-code" required class="w-full md:w-1/2 p-2 rounded-lg" placeholder="Código Postal" />
+						</div>
+					</div>
+				</fieldset>
+
+				<!-- Sección de contacto -->
+				<fieldset>
+					<legend class="text-lg font-semibold text-[#728cb0] mb-2">Información de Contacto <span class="text-red-600">*</span></legend>
+					<div class="flex flex-col md:flex-row gap-4">
+						<input type="email" id="email" required class="w-full md:w-1/2 p-2 rounded-lg" placeholder="Email" />
+						<!-- Campo de teléfono con intlTelInput -->
+						<div class="w-full md:w-1/2">
+							<input type="text" id="phone-number" class="w-full p-2 rounded-lg" placeholder="Número Telefónico" />
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</body>
+</html>

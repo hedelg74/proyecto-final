@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>¡Registro Completo!</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="bg-[#0e454e] h-screen flex items-center justify-center">
+		<div class="text-center bg-[#252a33] p-6 rounded-lg w-[90%] max-w-[1200px] shadow-lg">
+			<h1 class="text-white text-3xl text-center mb-6">¡Registro Exitoso!</h1>
+			<p class="text-center text-gray-300 mb-6">¡Gracias por registrarte en nuestra plataforma! Aquí tienes algunos pasos que puedes seguir:</p>
+
+			<!-- Sección responsiva con flexbox -->
+			<div class="flex flex-col sm:flex-col md:flex-row flex-wrap justify-between gap-4">
+				<!-- Iniciar Sesión -->
+				<div class="flex-1 min-w-[250px] p-4 bg-[#1e90ff] border border-blue-200 rounded-lg">
+					<h2 class="text-xl font-medium text-white mb-2">1. Iniciar Sesión</h2>
+					<p class="text-gray-100">Puedes acceder a tu cuenta iniciando sesión con tu correo y contraseña.</p>
+					<a href="./login.html" class="block mt-3 text-white hover:underline">Ir a la página de inicio de sesión</a>
+				</div>
+
+				<!-- Completar Perfil -->
+				<div class="flex-1 min-w-[250px] p-4 bg-green-600 border border-green-400 rounded-lg">
+					<h2 class="text-xl font-medium text-white mb-2">2. Completa tu Perfil</h2>
+					<p class="text-gray-100">Agrega más detalles a tu perfil para mejorar tu experiencia en la plataforma.</p>
+					<a href="/profile" class="block mt-3 text-white hover:underline">Completar perfil</a>
+				</div>
+
+				<!-- Explorar Funcionalidades -->
+				<!-- <div class="flex-1 min-w-[250px] p-4 bg-yellow-600 border border-yellow-400 rounded-lg">
+                <h2 class="text-xl font-medium text-white mb-2">3. Explora Funcionalidades</h2>
+                <p class="text-gray-100">Explora todas las funciones que ofrecemos y descubre cómo aprovechar al máximo tu cuenta.</p>
+                <a href="/features" class="block mt-3 text-white hover:underline">Descubrir funcionalidades</a>
+            </div>
+ -->
+				<!-- Contactar Soporte -->
+				<div class="flex-1 min-w-[250px] p-4 bg-red-600 border border-red-400 rounded-lg">
+					<h2 class="text-xl font-medium text-white mb-2">4. Contacta Soporte</h2>
+					<p class="text-gray-100">¿Tienes alguna duda? Nuestro equipo de soporte está aquí para ayudarte.</p>
+					<a href="/support" class="block mt-3 text-white hover:underline">Contactar soporte</a>
+				</div>
+			</div>
+			<a href="/" class="block text-[#15cfc6] text-center text-2xl mt-6"> <i class="bi bi-house-up"></i> Inicio </a>
+		</div>
+	</body>
+</html>

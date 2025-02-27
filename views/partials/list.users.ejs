@@ -1,0 +1,206 @@
+
+
+  <div class="fixed top-[80px] left-0 w-full z-50 dark:bg-black dark:text-white shadow-md bg-white">
+    
+
+      <div>
+        <h1 class="text-center font-sans text-4xl font-bold text-yellow-500 p-8">Mantenimiento Usuarios</h1>
+      </div>
+  
+      <div class="flex justify-end  space-x-5 m-2">
+        <button id="add-product" class="bg-blue-500 text-white rounded hover:bg-blue-600 h-10 w-28">Agregar</button>
+ 	    <div id="search-container" class="mb-4"> 
+          <select id="search-type" class="search-input border border-gray-300 rounded h-10"> u
+            <option value="id">Buscar por ID</option>
+            <option value="username">Buscar por Username</option>
+			<option value="email">Buscar por Username</option> 
+            <option value="name">Buscar por Email</option>
+			<option value="last_name">Buscar por Nombre</option>
+			<option value="phone">Buscar por Apellido</option>
+			<option value="created_at">Buscar por Telefono</option>
+			<option value="role">Buscar por Fecha Creacion</option>
+			<option value="is_active">Buscar por Rol</option>
+			
+
+        </select> 
+        <input type="text" id="search-input" class="search-input border h-10 w-64" placeholder="Ingrese su búsqueda"> </div>
+      </div>
+      <div>
+        <hr>
+        <div class="grid items-center grid-cols-12 p-2 font-medium">
+          <div class="" >Id</div>
+          <div class="" >Username</div>
+		  <div class="col-span-2" >Correo</div>
+          <div class="" >Nombre</div>
+		  <div class="" >Apellido</div>
+          <div  class="">Telefono</div>
+          <div class="">Creado</div>
+		  <div class="" >Role</div>
+		  <div class="" >Estatus</div>
+
+		  
+        </div>
+        <hr>
+      </div>
+    
+  </div>
+
+  <div class="absolute top-[190px] z-40 w-full" >
+      <ul id="lista" class="mx-5 mt-2 w-full">
+        <% for (let i = 0; i < data.length; i++) { %>
+          <li data-id=<%= data[i].id %> class="item grid items-center grid-cols-12 p-1 focus:text-white focus:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 w-full">
+            <div class="id"><%= data[i].id %></div>
+			<div class="username"><%= data[i].username%></div> 
+			<div class="email col-span-2"><%= data[i].email%></div>
+			<div class="name"><%= data[i].name %></div> 
+			<div class="last_name"><%= data[i].last_name%></div>
+			<div class="phone"><%= data[i].phone%></div>
+			<div class="created_at"><%= formatDate(data[i].created_at)%></div>
+			<div class="role"><%= data[i].role%></div>
+			<div class="is_active"><%= data[i].is_active ? "Activo" : "Inactivo"%></div>
+			<button><i data-id=<%=data[i].id%> class="bi bi-pencil hover:text-green-500 edit"></i></button>
+            <button><i data-id=<%=data[i].id%> class="bi bi-trash hover:text-red-500 delete"></i></button>
+			
+          </li>
+        <% } %>
+      </ul> 
+
+  </div>
+
+  
+ <% 
+  function formatDate(date) { 
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }; 
+    return new Intl.DateTimeFormat('es-CR', options).format(new Date(date)); 
+  }
+  %>
+
+<!--PRODUCTOS DIALOGOS-------------------------------- -->
+				
+		<dialog id="edit-dialog" class="fixed m-auto p-5 shadow-lg z-50" >
+			
+			<div class="m-4 p-4 flex flex-col">
+				<h1 class="text-3xl font-bold">Editar producto</h2>
+				<div class="flex m-2 items-center">
+					<output id="user-id" class="font-extrabold text-5xl text-left pl-5"></output>
+				</div>
+				<form id="edit-form" class="flex flex-col gap-y-2">
+					
+					<label for="username" class="font-bold">Usuario:</label>
+					<input id="username" name="username" class="border" required />
+
+					<label for="email" class="font-bold">correo:</label>
+					<input id="email" name="email" class="border" required/>
+
+					<label for="name" class="font-bold">Nombre:</label>	
+					<input id="name" name="name" class="border"/>
+
+					<label for="last_name" class="font-bold">Apellido</label>
+					<input id="last_name" name="last_name" class="border"/>
+					
+					<label for="phone" class="font-bold">Telefono:</label>
+					<input id="phone" name="phone" class="border"/>
+
+					<label for="created_at" class="font-bold" >Creado:</label>
+					<output id="created_at" class="border"></output>
+
+					<label for="role" class="font-bold">Role: </label>
+					<select id="role" name="role" class="border">
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Role --</option>
+						<option value="admin"  class="">Administrador</option>
+						<option value="user"  class="">Usuario</option>
+					</select>
+
+					<label for="is_active" class="font-bold">Estatus: </label>
+					<select id="is_active" name="is_active" class="border">
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Estatus --</option>
+						<option value="1"  class="">Activo</option>
+						<option value="0"  class="">Inactivo</option>
+					</select>
+					
+					<div class="flex justify-between mt-3">
+						<button id="save" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Guardar</button>
+						<button type="button" id="cancel" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Cancelar</button>
+					</div>
+				</form>
+			</div>
+		
+		</dialog>
+		
+		<dialog id="add-dialog" class="fixed m-auto p-5 shadow-lg z-50" >
+			
+			<div class="m-4 p-4 flex flex-col">
+				<h1 class="text-3xl font-bold">Agregar Usuario</h1>
+			<form id="add-form" class="flex flex-col gap-y-2">
+					
+				<label for="username" class="font-bold">Usuario:</label>
+				<input id="username" name="username" class="border" required />
+				<fieldset class="border border-[#728cb0] space-y-2 p-5 mt-3 rounded">
+					<legend class="text-lg font-semibold text-[#728cb0] mb-2">Contrasena:</legend>
+
+					<div class="flex flex-col md:flex-row gap-4">
+						<input
+							type="password"
+							name="password"
+							id="password"
+							required
+							minlength="8"
+							maxlength="32"
+							pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+							title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+							placeholder="Nueva contrasena"
+							class="border"
+						/>
+
+						<input
+							type="password"
+							name="confirm-password"
+							id="confirm-password"
+							required
+							minlength="8"
+							maxlength="32"
+							pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+							title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+							placeholder="Confirmar contrasena"
+							class="border"
+						/>
+					</div>
+				</fieldset>
+
+					<label for="email" class="font-bold">correo:</label>
+					<input id="email" name="email" class="border" required/>
+
+					<label for="name" class="font-bold" required >Nombre:</label>	
+					<input id="name" name="name" class="border" required/>
+
+					<label for="last_name" class="font-bold">Apellido</label>
+					<input id="last_name" name="last_name" class="border" required/>
+					
+					<label for="phone" class="font-bold">Telefono:</label>
+					<input id="phone" name="phone" class="border" required/>
+
+
+					<label for="role" class="font-bold">Role: </label>
+					<select id="role" name="role" class="border" required>
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Role --</option>
+						<option value="admin"  class="">Administrador</option>
+						<option value="user"  class="">Usuario</option>
+					</select>
+
+					<label for="is_active" class="font-bold">Estatus: </label>
+					<select id="is_active" name="is_active" class="border" required>
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Estatus --</option>
+						<option value="1"  class="">Activo</option>
+						<option value="0"  class="">Inactivo</option>
+					</select>
+
+					<div class="flex justify-between mt-3">
+						<button id="save" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Guardar</button>
+						<button type="button" id="cancel" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Cancelar</button>
+					</div>
+
+				</form>
+			</div>
+		
+		</dialog>
+

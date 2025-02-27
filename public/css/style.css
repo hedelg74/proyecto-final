@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Estilos globales */
+* {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background-color: #0e454e;
+}
+
+/* Elementos generales */
+.check {
+	display: none;
+}
+
+.bi-x-lg {
+	color: #fff;
+	display: none;
+}
+
+.bi-list {
+	display: none;
+}
+
+label.hamb {
+	display: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.5rem;
+	margin: 10px auto;
+	gap: 2px;
+}
+
+/* LOGOTIPO */
+.logo-container {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	margin: 10px auto;
+	margin-left: 10px;
+}
+
+.logo-container p {
+	font-size: medium;
+	font-weight: bold;
+}
+
+.logo {
+	height: 52px;
+	width: 52px;
+	border-radius: 50px;
+}
+
+/*------------------------------------------
+    BARRA DE NAVEGACION
+------------------------------------------*/
+header {
+	position: fixed;
+	/*display: flex;
+	justify-content: space-between;*/
+	background: #252a33;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+header p {
+	color: #daa520;
+}
+
+header nav {
+	background: #252a33;
+	z-index: 1000;
+	margin: 10px auto;
+}
+
+header nav ul.menu {
+	display: flex;
+	justify-content: center;
+	/*margin: 0.5rem auto;*/
+	z-index: 1000;
+	gap: 30px;
+}
+
+header nav ul li {
+	display: flex;
+	position: relative;
+}
+
+header nav ul li.menu-item {
+	border-radius: 5px 5px 0 0;
+}
+
+header nav ul li a {
+	color: #daa520;
+	display: flex;
+	margin: 10px auto;
+	width: 135px;
+}
+
+header nav ul li.menu-item > a {
+	justify-content: center;
+}
+
+header nav ul li ul li a {
+	margin-left: 2rem;
+}
+
+header nav ul.menu li.menu-item a {
+	gap: 10px;
+}
+
+header nav ul li a i.bi-chevron-right {
+	margin-left: auto;
+}
+
+.arrow {
+	transform: rotate(90deg);
+	transition: ease 0.5s;
+}
+
+header nav ul li:hover {
+	background: #3b414d;
+}
+
+header nav ul li ul.children-one {
+	height: 0;
+	overflow: hidden;
+	background: #252a33;
+	position: absolute;
+	top: 100%;
+	transition: height 0.3s ease;
+	border-radius: 0 5px 5px 5px;
+}
+
+header nav ul.menu li ul li ul.children-two {
+	height: 0;
+	overflow: hidden;
+	display: none;
+	background: #252a33;
+	transition: height 0.3s ease;
+}
+
+li.submenu-two ul.children-two li:hover {
+	border-left: #daa520 solid 2px;
+}
+
+/*------------------------------------------
+    CARRITO DE COMPRAS
+------------------------------------------*/
+.cart-container {
+	margin: 10px auto;
+	position: relative;
+}
+
+ul.submenu-cart {
+	position: absolute;
+	top: 100%;
+	right: 0;
+}
+
+.submenu-cart #cart {
+	background-color: rgba(39, 46, 54, 0.5);
+	box-shadow:
+		0px,
+		4px,
+		8px rgb(0, 0, 00, 0.5);
+	border-radius: 2%;
+	z-index: 1003;
+	padding: 20px;
+	width: 350px;
+	max-height: 300px; /* Altura máxima del contenedor */
+	overflow-y: auto;
+}
+
+/* .cart-container:hover .submenu-cart {
+	display: block;
+}
+ */
+table {
+	width: 100%;
+}
+
+th,
+tr {
+	color: #feffff;
+}
+
+.bi-cart4 {
+	color: #4377bb;
+}
+
+/*------------------------------------------
+    SECCION SERVICIOS Y CONTACTO
+------------------------------------------*/
+.services,
+.contact {
+	margin-bottom: 20px;
+}
+
+.card {
+	margin: 10px 0;
+}
+
+/*------------------------------------------
+    BOTON FLOTANTE DE WHATSAPP
+------------------------------------------*/
+.whatsapp_float {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 40px;
+	right: 30px;
+	border-radius: 50px;
+	z-index: 1000;
+}
+
+.whatsapp_float img {
+	width: 80%;
+	height: 80%;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: rgb(198, 200, 149);
+	color: #109d0b;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px;
+	position: relative;
+	z-index: 1;
+	bottom: -5%;
+	left: -35%;
+	margin-left: 2px;
+	transition: opacity 0.3s;
+	font-size: smaller;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+/*------------------------------------------
+    MEDIA QUERIES
+------------------------------------------*/
+
+/* Pantallas pequeñas (teléfonos en modo vertical) */
+@media (max-width: 768px) {
+	header {
+		width: 95%;
+	}
+	header nav ul.menu {
+		display: block;
+		position: absolute;
+		width: 80%;
+		height: 100vh;
+		top: 88px;
+		left: -100%;
+		transition: all 0.5s;
+		background-color: #153c54;
+		overflow: auto;
+	}
+
+	header nav ul li {
+		display: block;
+		position: static;
+	}
+
+	header nav ul li.menu-item {
+		border-radius: 0;
+		border-bottom: 1px solid rgba(203, 212, 221, 0.5);
+	}
+
+	header nav ul li.menu-item > a {
+		justify-content: left;
+		margin-left: 20px;
+	}
+
+	header nav ul li a {
+		padding: 10px 0;
+		width: auto;
+		font-size: 20px;
+		margin: 0;
+		margin-right: 2rem;
+	}
+
+	header nav ul li ul li a {
+		margin-left: 4rem;
+	}
+
+	header nav ul li ul li ul li > a {
+		margin-left: 5rem;
+	}
+
+	header nav ul li.submenu-one:hover {
+		background-color: #19a93c;
+	}
+
+	header nav ul li ul.children-one {
+		position: static;
+	}
+
+	.logo-container {
+		margin-left: 20px;
+	}
+
+	label.hamb {
+		display: flex;
+	}
+
+	.bi-list {
+		display: block;
+	}
+
+	#input-check:checked ~ nav > ul.menu {
+		left: 0;
+	}
+
+	#input-check:checked ~ label > .bi-list {
+		display: none;
+	}
+
+	#input-check:checked ~ label > .bi-x-lg {
+		display: block;
+	}
+
+	ul.submenu-cart {
+		right: -30px;
+	}
+	.cart-container p {
+		font-size: xx-large;
+	}
+}
+
+/* Pantallas grandes (tabletas en modo horizontal o computadoras pequeñas) */
+@media (min-width: 769px) and (max-width: 1024px) {
+	/* Espacio para estilos adicionales si es necesario */
+}

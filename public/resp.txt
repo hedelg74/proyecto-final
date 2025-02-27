@@ -1,0 +1,29 @@
+<section id="alambre-collares">
+				<!-- Tiutlo de coleccion -->
+				<h1 class="mt-32 relative left-10 text-2xl font-sans font-thin text-[#D0AB73]"><i class="bi bi-collection"></i> Colleccion Alambre-Collares</h1>
+				<hr class="mt-2 border-[#D0AB73]" />
+				<!-- Contenedor de imagenes -->
+				<div id="img-container-alambre-collares">
+					<!-- Aqui van las imagenes -->
+				</div>
+			</section>
+
+			<section id="alambre-brazaletes">
+				<!-- Tiutlo de coleccion -->
+				<h1 class="mt-32 relative left-10 text-2xl font-sans font-thin text-[#D0AB73]"><i class="bi bi-collection"></i> Colleccion Alambre-Brazaletes</h1>
+				<hr class="mt-2 border-[#D0AB73]" />
+				<!-- Contenedor de imagenes -->
+				<div id="img-container-alambre-brazaletes">
+					<!-- Aqui van las imagenes -->
+				</div>
+			</section>
+
+			<section id="alambre-dijes">
+				<!-- Tiutlo de coleccion -->
+				<h1 class="mt-32 relative left-10 text-2xl font-sans font-thin text-[#D0AB73]"><i class="bi bi-collection"></i> Colleccion Alambre-Dijes</h1>
+				<hr class="mt-2 border-[#D0AB73]" />
+				<!-- Contenedor de imagenes -->
+				<div id="img-container-alambre-dijes">
+					<!-- Aqui van las imagenes -->
+				</div>
+			</section>

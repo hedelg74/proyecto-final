@@ -1,0 +1,73 @@
+<div class="flex justify-evenly max-sm:flex max-sm:items-baseline">
+	<input type="checkbox" id="input-check" class="check hidden" />
+	<label for="input-check" class="hamb hidden"><i class="bi bi-list"></i><i class="bi bi-x-lg"></i>Menu</label>
+	
+	<div class="logo-container flex w-52 ml-2 items-center space-x-2 max-sm:flex-col">
+		<img src="./images/favicon.png" alt="logo" class="logo h-16 w-16 rounded-full" />
+		<p class="font-bold">Arte-TTuckler</p>
+	</div>
+
+	<nav class="navbar w-full">
+		<ul class="menu w-full flex justify-around  h-full items-center">
+			<li class="menu-item">
+				<a id="load_products" href=""><i class="bi bi-dropbox text-[#15cfc6]"></i> Productos</i></a>
+			</li>
+			<li class="menu-item">
+				<a id="load_categories" href=""><i class="bi bi-folder text-[#15cfc6]"></i>
+					Categorias</i></a>
+			</li>
+			<li class="menu-item">
+				<a id="load_subcategories" href=""><i class="bi bi-tag text-[#15cfc6]"></i> SubCategorias</i></a>
+			</li>
+			<li class="menu-item submenu relative">
+				<a href="#"><i class="bi bi-tag text-[#15cfc6]"></i> Movimientos <i class="bi bi-chevron-right"></i></a>
+				<ul class="absolute left-0 top-5  p-2 hidden  bg-[#252a33] w-full z-[999]">
+					<li class="menu-item submenu-one p-2 mt-10 hover:bg-[#3b414d] w-full">
+						<a id="stock-in" href="" class=""><i class="bi bi-building-add"></i> Entradas</a>
+					</li>
+					<li class="menu-item submenu-one p-2 mt-2 hover:bg-[#3b414d] w-full">
+						<a id="stock-out" href="" class=""><i class="bi bi-building-dash"></i>Salidas</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="menu-item">
+				<a id="users" href=""><i class="bi bi-people text-[#15cfc6]"></i> Usuarios</a>
+			</li>
+			<li class="menu-item">
+				<a id="reports" href=""><i class="bi bi-card-list text-[#15cfc6]"></i> Reportes</a>
+			</li>
+			<li>
+				<!--Tema color-->
+	<div class="flex items-center space-x-4 mr-10">
+		
+		<!-- Toggle switch con iconos -->
+		<label class="relative inline-flex items-center cursor-pointer h-fit">
+			<i class="bi bi-brightness-high absolute left-1 top-1 text-white text-sm"></i>
+			<input id="theme-toggle" type="checkbox" class="sr-only peer">
+			<div class="w-14 h-7 bg-gray-300 rounded-full peer-checked:bg-blue-600 transition-colors"></div>
+		
+		
+			<!-- Esfera -->
+			<div class="absolute left-1 top-1 w-6 h-5 bg-white rounded-full shadow-md transition-transform transform peer-checked:translate-x-6"></div>
+			<i class="bi bi-moon absolute right-1 top-1 text-black text-sm"></i>
+		</label>
+	  </div>
+			</li>
+			<li class="menu-item">
+				<a href="index.html"><i class="bi bi-box-arrow-right text-3xl text-[#15cfc6]"></i></a>
+			</li>
+		</ul>
+	</nav>
+	
+</div>
+
+
+<script>
+	const subMenu = document.querySelector('.submenu');
+	const menu = document.querySelector('.submenu ul');
+	subMenu.addEventListener('click', function(e) { 
+		e.preventDefault
+		menu.classList.toggle('hidden'); });
+	menu.addEventListener('mouseleave', function() { menu.classList.add('hidden'); });
+</script>

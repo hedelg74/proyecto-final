@@ -1,0 +1,8 @@
+{
+    "rules": {
+      "no-unused-vars": "warn", // Advertir sobre variables no usadas
+      "no-undef": "error", // Error si una variable no está definida
+      "camelcase": "warn", // Advertir sobre nombres que no siguen camelCase
+      "prefer-const": "warn" // Sugerir usar const cuando es posible
+    }
+  }

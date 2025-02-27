@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir archivo</title>
+</head>
+<body>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="text" id="customPath" placeholder="Especifica la ruta (por ejemplo, 'images' o 'documents/images')" required>
+    <input type="file" name="file" id="fileInput" required>
+    <button type="submit">Subir archivo</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(form);
+      const customPath = document.getElementById('customPath').value;
+
+      formData.append('customPath', customPath);
+
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    });
+  </script>
+</body>
+</html>

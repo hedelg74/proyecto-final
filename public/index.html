@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es" >
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Arte-TTuckler</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+
+		<link rel="stylesheet" href="./css/style.css" />
+
+		<link href="./css/output.css" rel="stylesheet" />
+	</head>
+
+	<body class="overflow-auto relative dark:bg-black dark:text-white">
+		<header class="header"><div id="main-menu"></div></header>
+
+		<hr id="inicio" class="mt-2 border-[#D0AB73]" />
+
+		<main class="flex-grow">
+			<div id="product-section-container">
+
+			</div>
+
+			<!-- INFORMACION DE SERVICIOS -->
+			<section id="services" class="services">
+				<h1 class="mt-32 relative left-10 text-2xl font-sans font-thin text-[#D0AB73]"><i class="bi bi-info-circle"></i> Servicios</h1>
+				<hr class="mt-2 border-[#D0AB73]" />
+
+				<div class="card">
+					<div class="card-body border bottom-1 border-gray-500 text-[#ffffff] rounded p-4 m-4">
+						<h5 class="card-title"><i class="bi bi-person-fill text-[#15cfc6]"></i> Asesoramiento Personalizado</h5>
+						<p class="card-text">Te ayudo a encontrar los productos que mejor se adapten a tus necesidades.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body border bottom-1 border-gray-500 text-[#ffffff] rounded p-4 m-4">
+						<h5 class="card-title"><i class="bi bi-dropbox text-[#15cfc6]"></i> Venta de Artículos</h5>
+						<p class="card-text">Amplia gama de productos disponibles para ti.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body border bottom-1 border-gray-500 text-[#ffffff] rounded p-4 m-4">
+						<h5 class="card-title"><i class="bi bi-truck text-[#15cfc6]"></i> Envíos Rápidos</h5>
+						<p class="card-text">Garantizamos envíos rápidos y seguros a cualquier parte del país.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- INFORMACION DE CONTACTO -->
+			<section id="contact">
+				<h1 class="mt-32 relative left-10 text-2xl font-sans font-thin text-[#D0AB73]"><i class="bi bi-info-circle"></i> Contacto</h1>
+				<hr class="mt-2 border-[#D0AB73]" />
+				<div class="card-body border bottom-1 border-gray-500 text-[#ffffff] rounded p-4 m-4">
+					<p>¿Tienes alguna pregunta o necesitas más información? No dudes en contactarme.</p>
+					<p>
+						<i class="bi bi-envelope-at-fill text-[#15cfc6]"></i> Email:
+						<a href="hdelgados74@gmail.com">hdelgados74@gmail.com</a>
+					</p>
+					<p><i class="bi bi-telephone-forward text-[#15cfc6]"></i> Teléfono: +50672137516</p>
+				</div>
+			</section>
+
+			<div class="tooltip">
+				<!-- Botón flotante de WhatsApp -->
+				<a href="https://wa.me/50672137516?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." class="whatsapp_float" target="_blank">
+					<img src="./images/whatsapp.png" alt="WhatsApp" />
+					<span class="tooltiptext">Contáctanos</span>
+				</a>
+			</div>
+			<section id="media-icons">
+				<div class="flex justify-center gap-x-10 mt-20">
+					<a href="#"><i class="bi bi-facebook text-3xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out transform hover:scale-110"></i></a>
+					<a href="#"> <i class="bi bi-messenger text-3xl text-blue-500 hover:text-blue-700 transition duration-300 ease-in-out transform hover:scale-110"></i></a>
+					<a href="#"> <i class="bi bi-instagram text-3xl text-pink-500 hover:text-pink-700 transition duration-300 ease-in-out transform hover:scale-110"></i></a>
+				</div>
+			</section>
+		</main>
+
+		<!-- Fondo semitransparente -->
+		<div id="modalBackground" class="fixed inset-0 bg-black bg-opacity-50 z-[2000] hidden"></div>
+		<!-- Modal -->
+		<div
+			id="myModal"
+			class="z-[2001] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-600 bg-opacity-50 justify-center items-center hidden p-6 rounded-lg shadow-lg max-w-sm min-h-min"
+		>
+			<div class="bg-white p-6 rounded shadow-lg flex flex-col justify-center">
+				<h2 class="text-xl mb-4">¿Estás seguro de que deseas vaciar tu cart de compras?</h2>
+				<div class="flex justify-around items-center">
+					<button id="confirmAction" class="bg-green-500 text-white px-4 py-2 rounded mr-2">Sí</button>
+					<button id="closeModal" class="bg-red-500 text-white px-4 py-2 rounded">No</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- FOOTER -->
+		<footer id="index-footer" class="mt-20 p-10 flex justify-center items-center bg-[#252a33] text-[#748297]">
+			<p class="text-center">
+				Powered by: <i class="bi bi-envelope-at-fill text-[#15cfc6]"></i> Email:
+				<a href="hdelgados74@gmail.com">Henry Delgado</a>
+			</p>
+		</footer>
+		<script type="module" src="./js/load.main.menu.js"></script>
+		<script type="module" src="./js/menu.actions.js"></script>
+		<!--<script type="module" src="./js/shoppingcart.js"></script>-->
+		
+		<script src="./js/verify.shoppingcart.js"></script>
+		<script type="module" src="./js/syncCartWithServer.js"></script>
+		<!--<script type="module" src="./js/login.js"></script>-->
+		<script type="module" src="./js/logout.js"></script>
+		<script type="module" src="./js/authenticate.client.token.js"></script>
+		
+		<!-- Llamamos a las funciones para cargar la imagenes -->
+		<script type="module">
+			import { loadProducts } from "./js/load.product.js";
+			await loadProducts("/api/load-products", "product-section-container");
+			const script = document.createElement('script');
+			script.type="module";
+			script.src = './js/shoppingcart.js';
+			document.body.appendChild(script);
+
+		</script>
+	</body>
+</html>

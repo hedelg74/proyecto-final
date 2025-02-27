@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Iniciar sesión</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="bg-[#0e454e] flex justify-center items-center h-screen">
+		<div class="bg-[#252a33] p-6 rounded-lg w-[400px] shadow-md">
+			<h1 class="text-white text-center text-3xl font-extrabold mb-5">Iniciar sesión</h1>
+			<form id="loginForm">
+				<div class="mb-4">
+					<label for="email" class="block text-white mb-2">Email</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						minlength="5"
+						maxlength="50"
+						pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+						title="Introduce un correo electrónico válido (ejemplo@dominio.com)"
+						placeholder="Enter your email"
+						class="w-full p-3 rounded-lg border border-gray-300 bg-[#f9f9f9]"
+						required
+					/>
+				</div>
+
+				<div class="mb-4">
+					<label for="password" class="block text-white mb-2">Password</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						minlength="8"
+						maxlength="32"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+						title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+						placeholder="Enter your password"
+						class="w-full p-3 rounded-lg border border-gray-300 bg-[#f9f9f9]"
+						required
+					/>
+				</div>
+				<span id="login-error-message" class="text-red-700 text-center hidden"></span>
+				<button type="submit" class="w-full p-3 bg-[#1e90ff] text-white rounded-lg hover:bg-[#156bbf]">Login</button>
+				<p class="text-white text-center mt-4">No tienes una cuenta? <a href="./signup.html" class="text-[#1e90ff] hover:underline">Registrate aquí</a>.</p>
+			</form>
+			<a href="/" class="block text-[#15cfc6] text-center text-2xl mt-6"> <i class="bi bi-house-up"></i> Inicio </a>
+		</div>
+		<script src="./js/login.js"></script>
+	</body>
+</html>

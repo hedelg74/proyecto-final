@@ -1,0 +1,54 @@
+import express from 'express';
+import multer from 'multer';
+import fs from 'fs';
+import path from 'path';
+
+const app = express();
+
+// Middleware para manejar multipart/form-data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Función para crear directorios si no existen
+const createDirectoryIfNeeded = (dir) => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+};
+
+// Configuración de Multer para subir archivos
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const customPath = req.body.customPath || ''; // Obtener la ruta proporcionada por el cliente
+    let dir = path.join(__dirname, 'uploads', customPath); // Crear la ruta completa
+
+    // Validación de ruta para evitar rutas fuera de 'uploads'
+    if (!dir.startsWith(path.join(__dirname, 'uploads'))) {
+      return cb(new Error('Ruta no permitida'));
+    }
+
+    createDirectoryIfNeeded(dir); // Crear directorio si no existe
+    cb(null, dir); // Establecer destino
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Mantener el nombre original del archivo
+  }
+});
+
+const upload = multer({ storage });
+
+// Ruta para subir el archivo
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.json({ message: `Archivo subido a: ${req.file.path}` });
+});
+
+// Manejo de errores
+app.use((err, req, res, next) => {
+  if (err) {
+    return res.status(400).json({ message: err.message });
+  }
+  next();
+});
+
+app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));

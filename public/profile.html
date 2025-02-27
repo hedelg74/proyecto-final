@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Perfil de usuario</title>
+		<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="./css/output.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/intlTelInput.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+	</head>
+	<body class="bg-[#0E454E] min-h-screen flex items-center justify-center">
+		<!-- <form class="bg-[#1e2a33] max-w-3xl w-full rounded-lg p-6 shadow-lg"> -->
+		<div class="rounded p-5 w-[80%] mt-10 mb-20 bg-[#1e2a33]">
+			<div class="flex justify-center">
+				<h1 class="text-[#daa520] text-3xl font-bold flex items-center space-x-2">
+					<i class="bi bi-person text-[#15cfc6]"></i>
+					<span>Perfil de usuario</span>
+				</h1>
+			</div>
+			<!-- personal info section -->
+			<div>
+				<form id="form-profile">
+					<fieldset class="border border-[#728cb0] space-y-2 p-5 mt-3 rounded">
+						<legend class="text-lg font-semibold text-[#728cb0] mb-2">Datos de usuario:<span class="text-red-600">*</span></legend>
+
+						<div class="flex flex-col md:flex-row gap-4">
+							<div class="w-full md:w-1/2">
+								<input type="text" id="name" name="name" required class="w-full rounded p-1" placeholder="Nombre" />
+							</div>
+							<div class="w-full md:w-1/2">
+								<input type="text" id="last-name" name="last-name" required class="w-full rounded p-1" placeholder="Apellido" />
+							</div>
+						</div>
+						<!-- Campo de teléfono con intlTelInput -->
+						<div class="w-full md:w-1/2">
+							<input type="text" id="phone-number" name="phone-number" class="w-full rounded p-1" placeholder="Número Telefónico" required />
+						</div>
+						<div class="flex justify-end">
+							<button type="submit" class="border w-[164px] bg-[#1e90ff] m-2 text-white p-2 cursor-pointer rounded font-[16px] hover:text-[#1e90ff] hover:bg-white hover:border-[#1e90ff]">
+								Guardar Cambios
+							</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<!-- Password section-->
+			<form id="form-password">
+				<fieldset class="border border-[#728cb0] space-y-2 p-5 mt-3 rounded">
+					<legend class="text-lg font-semibold text-[#728cb0] mb-2">Cambiar contrasena:</legend>
+
+					<div class="flex flex-col md:flex-row gap-4">
+						<input
+							type="password"
+							name="password"
+							id="password"
+							required
+							minlength="8"
+							maxlength="32"
+							pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+							title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+							placeholder="Nueva contrasena"
+							class="rounded p-1"
+						/>
+
+						<input
+							type="password"
+							name="confirm-password"
+							id="confirm-password"
+							required
+							minlength="8"
+							maxlength="32"
+							pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+							title="La contraseña debe tener al menos 8 caracteres, incluir al menos una letra y un número."
+							placeholder="Confirmar contrasena"
+							class="rounded p-1"
+						/>
+					</div>
+					<div class="flex justify-end">
+						<button type="submit" class="border bg-[#1e90ff] m-2 text-white p-2 cursor-pointer rounded font-[16px] hover:text-[#1e90ff] hover:bg-white hover:border-[#1e90ff]">
+							Cambiar Contraseña
+						</button>
+					</div>
+				</fieldset>
+			</form>
+
+			<!--Addresses section  -->
+			<form id="form-address">
+				<fieldset class="border border-[#728cb0] space-y-2 p-5 mt-3 rounded">
+					<legend class="text-lg font-semibold text-[#728cb0] mb-2">Direcciónes para envio: <span class="text-red-600">*</span></legend>
+					<div class="space-y-2">
+						<div class="flex justify-between">
+							<input type="text" id="address-id" name="addressId" value="" class="hidden" />
+							<input type="text" id="address-type" name="type" placeholder="Tipo (casa, trabajo, oficina)" class="rounded p-1" required />
+							<div>
+								<input type="checkbox" name="isDefault" value="0" class="hidden" />
+								<label class="text-[#728cb0]"><input id="isDefault" type="checkbox" name="isDefault" value="1" class="scale-150" />&nbsp;&nbsp;&nbsp;Dirección predeterminada</label>
+							</div>
+
+							<label for="address-options" class="text-[#728cb0]">Tus direcciones: </label>
+							<select id="address-options" name="address-options" class="w-[200px] rounded text-black">
+								<option value="" disabled selected class="text-gray-400">-- Selecciona una opcion --</option>
+								<!-- addresses here -->
+							</select>
+						</div>
+
+						<input type="text" id="address_line1" name="addressLine1" required class="w-full rounded p-1" placeholder="Dirección" />
+						<input type="text" id="address_line2" name="addressLine2" class="w-full rounded p-1" placeholder="" />
+
+						<div class="flex flex-col md:flex-row gap-4">
+							<input type="text" id="city" name="city" class="w-full md:w-1/2 rounded p-1" placeholder="Ciudad" />
+							<input type="text" id="state" name="state" required class="w-full md:w-1/2 rounded p-1" placeholder="Provincia" />
+						</div>
+
+						<div class="flex flex-col md:flex-row gap-4">
+							<input type="text" id="country" name="country" required class="w-full md:w-1/2 rounded p-1" placeholder="País" />
+							<input type="text" id="postal-code" name="postalCode" required class="w-full md:w-1/2 rounded p-1" placeholder="Código Postal" />
+						</div>
+					</div>
+					<div class="flex justify-end">
+						<button id="add" type="submit" class="border w-[164px] bg-[#1e90ff] m-2 text-white p-2 cursor-pointer rounded font-[16px] hover:text-[#1e90ff] hover:bg-white hover:border-[#1e90ff]">
+							Agregar
+						</button>
+						<button id="update" type="submit" class="border w-[164px] bg-[#1e90ff] m-2 text-white p-2 cursor-pointer rounded font-[16px] hover:text-[#1e90ff] hover:bg-white hover:border-[#1e90ff]">
+							Actualizar
+						</button>
+					</div>
+					<div class="flex justify-center items-center">
+						<a href="/" class="text-[#15cfc6] text-2xl"><i class="bi bi-house-up"></i> Inicio</a>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+
+		<script type="module" src="./js/config.profile.js"></script>
+		<script src="/js/intlTelInput.min.js"></script>
+		<script src="./js/intelInput.js"></script>
+	</body>
+</html>

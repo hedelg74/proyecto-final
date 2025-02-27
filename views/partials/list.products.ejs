@@ -1,0 +1,208 @@
+
+
+  <div class="fixed top-[80px] left-0 w-full z-50 dark:bg-black dark:text-white shadow-md bg-white">
+    
+
+      <div>
+        <h1 class="text-center font-sans text-4xl font-bold text-yellow-500 p-8">Mantenimiento Productos</h1>
+      </div>
+  
+      <div class="flex justify-end  space-x-5 m-2">
+        <button id="add-product" class="bg-blue-500 text-white rounded hover:bg-blue-600 h-10 w-28">Agregar</button>
+        <button id="scan-qrcode" class="bg-blue-500 text-white rounded hover:bg-blue-600 h-10 w-28">Escáner QR</button>
+        <div id="search-container" class="mb-4"> 
+          <select id="search-type" class="search-input border border-gray-300 rounded h-10"> 
+            <option value="id">Buscar por ID</option>
+            <option value="name">Buscar por Nombre</option> 
+            <option value="description">Buscar por Descripción</option>
+			<option value="status">Buscar por Estatus</option> 
+        </select> 
+        <input type="text" id="search-input" class="search-input border h-10 w-64" placeholder="Ingrese su búsqueda"> </div>
+      </div>
+      <div>
+        <hr>
+        <div class="grid items-center grid-cols-11 p-2 font-medium">
+          <div class="">Producto</div>
+          <div class="" >Id</div>
+          <div class="" >Nombre</div>
+          <div class="" >Descripción</div>
+          <div  class="text-right">Stock</div>
+          <div class="text-right">Precio</div>
+		  <div class="text-right">Estatus</div>
+		  
+        </div>
+        <hr>
+      </div>
+    
+  </div>
+
+  <div class="absolute top-[190px] z-40 w-full" >
+      <ul id="lista" class="mx-5 mt-2 w-full">
+        <% for (let i = 0; i < data.length; i++) { %>
+          <li data-id=<%=data[i].id%> tabindex="0" class="item grid items-center grid-cols-11 p-1 focus:text-white focus:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 w-full">
+		    <div><img src=<%=data[i].image_path%> class="image h-16 w-16 rounded"></div>
+            <div class="id"><%= data[i].id %></div>
+			<div class="name"><%= data[i].name %></div> 
+			<div class="description"><%= data[i].description || 'Sin descripción' %></div>
+			<div class="stock text-right"><%= data[i].stock %></div> 
+			<div class="price text-right">$<%= data[i].price %></div>
+			<div class="status text-right"><%= data[i].product_status=== 1 ? "Activo" : "Inactivo" %></div>
+            <button><i data-id=<%=data[i].id%> class="bi bi-pencil hover:text-green-500 edit"></i></button>
+            <button><i data-id=<%=data[i].id%> class="bi bi-trash hover:text-red-500 delete"></i></button>
+			<i data-id=<%=data[i].id%> class="bi bi-printer hover:text-fuchsia-500 cursor-pointer print"> QR</i>
+			<input type="hidden" id="hiddenQR" value=<%=data[i].qr_code%> hidden>
+			
+          </li>
+        <% } %>
+      </ul> 
+
+  </div>
+
+  
+ 
+
+<!--PRODUCTOS DIALOGOS-------------------------------- -->
+				
+		<dialog id="edit-dialog" class="fixed m-auto p-5 shadow-lg z-50" >
+			
+			<div class="m-4 p-4 flex flex-col">
+				<h1 class="text-3xl font-bold">Editar producto</h2>
+				<div class="flex m-2 items-center">
+					<img id="product-img" class="border bg-gray-400 w-32 h-32 rounded" src="" alt="Imagen" />
+					<output id="product-id" class="font-extrabold text-5xl text-left pl-5"></output>
+				</div>
+				<form id="edit-form" class="flex flex-col gap-y-2">
+					<label for="img_path">Directorio:</label>
+					<input type="text" id="img_path" name="img_path" class="border" required />
+					<input type="file" id="filename" name="file"/>
+					
+					<label for="name" class="font-bold">Nombre</label>
+					<input type="text" id="name" name="name" class="border" required />
+					<label for="description" class="font-bold">Descripción</label>
+					<input id="description" name="description" class="border" required></input>
+					<label for="stock" class="font-bold">Stock</label>	
+					<output type="number" id="stock" name="stock" class="border">145</output>
+					<label for="price" class="font-bold">Precio</label>
+					<input type="number" id="price" name="price" class="border"></input>
+					<label for="category" class="font-bold" >Categoria </label>
+					<select id="category" name="category" class="w-[200px] rounded text-black border">
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Categoria --</option>
+						<!-- categories here -->
+					</select>
+					<label for="sub_category" class="font-bold">Sub Categorias: </label>
+					<select id="sub_category" name="sub_category" class="w-[200px] rounded text-black border">
+						<option value="" disabled selected class="text-gray-400">-- Selecciona SubCategoria --</option>
+						<!-- sub categories here -->
+					</select>
+					<label for="status" class="font-bold">Estatus: </label>
+					<select id="status" name="status" class="w-[200px] rounded text-black border">
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Estatus --</option>
+						<option value="1"  class="">Activo</option>
+						<option value="0"  class="">Inactivo</option>
+						<!-- estatus here -->
+					</select>
+					<label for="create_at" class="font-bold">Fecha creacion</label>
+					<output type="text" id="create_at" name="create_at" class="border"></output>
+					<div class="flex justify-between mt-3">
+						<button id="save" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Guardar</button>
+						<button type="button" id="cancel" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Cancelar</button>
+					</div>
+				</form>
+			</div>
+		
+		</dialog>
+		
+		<dialog id="add-dialog" class="fixed m-auto p-5 shadow-lg z-50" >
+			
+			<div class="m-4 p-4 flex flex-col">
+				<h1 class="text-3xl font-bold">Agregar producto</h2>
+				<div class="flex m-2 items-center">
+					<img id="product-img" class="border w-32 h-32 rounded" src="" alt="Imagen" />
+				</div>
+				<form id="add-form" class="flex flex-col gap-y-2" enctype="multipart/form-data">
+					
+					<input type="file" id="filename" name="file" accept="image/*" required/>
+					
+					<label for="name" class="font-bold">Nombre</label>
+					<input type="text" id="name" name="name" class="border" required />
+					<label for="description" class="font-bold">Descripción</label>
+					<input id="description" name="description" class="border" required></input>
+					<label for="category" class="font-bold" >Categoria </label>
+					<select id="category" name="category" class="w-[200px] rounded text-black border" required>
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Categoria --</option>
+						<!-- categories here -->
+					</select>
+					<label for="sub_category" class="font-bold">Sub Categorias: </label>
+					<select id="sub_category" name="sub_category" class="w-[200px] rounded text-black border" required>
+						<option value="" disabled selected class="text-gray-400">-- Selecciona SubCategoria --</option>
+						<!-- sub categories here -->
+					</select>
+					<label for="status" class="font-bold">Estatus: </label>
+					<select id="status" name="status" class="w-[200px] rounded text-black border" required>
+						<option value="" disabled selected class="text-gray-400">-- Selecciona Estatus --</option>
+						<option value="1"  class="">Activo</option>
+						<option value="0"  class="">Inactivo</option>
+						<!-- estatus here -->
+					</select>
+					<div class="flex justify-between mt-3">
+						<button type="submit" id="save" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Guardar</button>
+						<button type="button" id="cancel" class="rounded text-center w-48 p-2 text-sm bg-blue-700 text-white font-bold border border-white hover:border-blue-700 hover:bg-white hover:text-blue-700">Cancelar</button>
+					</div>
+				</form>
+			</div>
+		
+		</dialog>
+
+		<dialog id="scan-dialog" class="fixed m-auto p-5 shadow-lg z-50">
+			<div class="flex flex-col items-center">
+			<button id="close-scan-dialog" class="bg-red-500 text-white rounded hover:bg-red-600 p-2 m-2">Cerrar</button>
+			<div id="reader" class="w-[500px] h-[500px] border">
+			</div>
+			<div id="result" class="w-[500px] h-auto border flex flex-col p-5">
+				<div class="flex justify-center">
+
+				<img id="img_product" src="" alt="image" class="rounded w-[200px] h-[200px]" >
+				</div>
+				<label for="product_id" class="font-bold">Id:</label>
+				<output id="product_id" class="border"></output>
+
+				<label for="product_name" class="font-bold">Nombre:</label>
+				<output id="product_name" class="border"></output>
+
+				<label for="product_description" class="font-bold">Descripcion:</label>
+				<output id="product_description" class="border"></output>
+
+				<label for="product_price" class="font-bold">Precio</label>
+				<output id="product_price" class="border"></output>
+
+				<label for="product_stock" class="font-bold">Stock:</label>
+				<output id="product_stock" class="border"></output>
+
+				<label for="product_category" class="font-bold">Categoria:</label>
+				<output id="product_category" class="border"></output>
+
+				<label for="product_subcategory" class="font-bold">SubCategoria:</label>
+				<output id="product_subcategory" class="border"></output>
+
+				<label for="product_created_at" class="font-bold">Fecha creacion:</label>
+				<output id="product_created_at" class="border"></output>
+
+				<label for="product_status" class="font-bold">Estatus:</label>
+				<output id="product_status" class="border"></output>
+				
+				<label for="product_qr_code" class="font-bold">Codigo QR:</label>
+				<output id="product_qr_code" class="border"></output>
+
+				<label for="product_description" class="font-bold">Imagen dir:</label>
+				<output id="product_img_path" class="border"></output>
+			</div>
+			</div>
+		</dialog>
+
+		<dialog id="delete-dialog">
+			<h2>Eliminar producto</h2>
+			<p>Esta seguro que desea eliminar este producto?</p>
+			<button id="delete">Eliminar</button>
+			<button id="cancel">Cancelar</button>
+		</dialog>
+	
