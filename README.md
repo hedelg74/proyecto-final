@@ -2,6 +2,6 @@
 
 Pagina de tienda en linea
 
-Este es el usuario administrados:
+Este es el usuario administrador:
 email:hdelgados74@gmail.com
 contraseña:hedelg1974
