@@ -449,11 +449,19 @@ import { showDialog } from "./showdialog.message.js";
 						body: JSON.stringify({ qrCode: qrCode })
 					})
 					.then(response => response.json())
-					.then(data => {
+						.then(data => {
+						console.log("Server response:", data); 
 						const resultDiv = document.getElementById('result');
 						//resultDiv.innerHTML = JSON.stringify(data, null, 2);
 						const divOutputChildren=resultDiv.getElementsByTagName("output");
 						const imgProduct=document.getElementById("img_product");
+
+						// Check if data.data exists and is an array
+						if (!data.data || !Array.isArray(data.data) || data.data.length === 0) {
+							console.error("Invalid data structure:", data);
+							return;
+						}
+
 						imgProduct.src=data.data[0].image_path;
 						divOutputChildren[0].textContent=data.data[0].id;
 						divOutputChildren[1].textContent=data.data[0].name;
